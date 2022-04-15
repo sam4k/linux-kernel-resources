@@ -6,7 +6,7 @@ General notes and resources on compiling the Linux kernel from source.
 * [Kernel Build Process](#kernel-build-process)
   * [Cleanup](#cleanup)
   * [Recompiling In-Tree Modules](#recompiling-in-tree-modules)
-* [Building External Modules](#building-external-modules)
+* [Building An External Module](#building-an-external-module)
 * [Resources](#resources)
 
 ## Files

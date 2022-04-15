@@ -3,10 +3,10 @@ Alright, hopefully this will be one of the more fleshed out categories. We'll to
 
 ## Contents
 * [Getting Set Up (GDB)](#getting-set-up-gdb)
-  * [GDB + VM](#gdb-vm)
+  * [GDB + VM](#gdb--vm)
     * [QEMU](#qemu)
     * [VMWare](#vmware)
-  * [Symbols & KASLR](#symbols-kaslr)
+  * [Symbols & KASLR](#symbols--kaslr)
     * [Loadable Modules](#loadable-modules)
 * [Useful GDB Commands](#useful-gdb-commands)
 * [Resources](#resources)
