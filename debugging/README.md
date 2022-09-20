@@ -75,7 +75,6 @@ Structs:
 * `(gdb) ptype struct kernel_struct` will print out the struct definition for your kernel image 
 * `(gdb) ptype /o struct kernel_struct` will also include size and offsets for each member! 
 * `(gdb) p (int)&((struct kernel_struct*)0)->field_name` will print the offset in bytes for specific `field_name` in `kernel_struct`
-* `(gdb) p (int)&((struct kernel_struct*)0)->field_name` will print the offset in bytes for specific `field_name` in `kernel_struct`
 * `(gdb) p *(struct msg_msg*) 0xffffffff82e03db8`: cast and pretty print a `kernel_struct`  from a given address
   * `(gdb) p *(struct msg_msg*) $RAX`: or from a specific register
 
