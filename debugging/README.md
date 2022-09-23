@@ -51,6 +51,8 @@ To keep our sanity, we'll also want symbols when debugging, so we need to grab a
   * On Ubuntu, if you update your sources and keyring [[2]](https://wiki.ubuntu.com/Debug%20Symbol%20Packages), you can pull the debug symbols by running `$ sudo apt-get install linux-image-$(uname -r)-dbgsym` and should find your `vmlinux` @ `/usr/lib/debug/boot/vmlinux-$(uname-r)`
 * If for some reason you just have the compressed `vmlinuz`, that somehow has symbols, you can use the kernel source's `./scripts/extract-vmlinux /your/vmlinuz > /your/vmlinux` 
 
+I've added a script into this dir called `install_ksyms.sh` which will automate the symbols process on an Ubuntu guest :)
+
 **Finally** don't forget to turn off KASLR on your *guest*! The amount of times I've forgotten this ... 
   * Add `nokaslr` to your boot options, typically via grub menu at boot 
     * grub menu can be reached by hold shift at boot, then on your kernel selection pressing `e` will allow you to edit params (these changes don't persist), and you'll want to add it to the line with other booth options like `nosplash`
