@@ -13,6 +13,12 @@ exit_on_fail() {
     fi
 }
 
+sanitise_config() {
+    echo "[+] Sanitising Ubuntu kconfig for self compilation"
+    sed -i -e '/CONFIG_SYSTEM_TRUSTED_KEYS=/ s/=.*/=""/' .config
+    sed -i -e '/CONFIG_SYSTEM_REVOCATION_KEYS=/ s/=.*/=""/' .config
+}
+
 # parse our arguments
 while getopts o:v:c: flag
 do
@@ -44,6 +50,12 @@ else
     echo "[+] Using .config from $CONFIG"
     cp $CONFIG .config
     exit_on_fail "[!] error: cp $CONFIG .config"
+
+    # if we use an ubuntu kconfig, let's sanitise it
+    if [[ "$CONFIG" == "/boot/config-"*"-generic" ]]; then
+      sanitise_config
+    fi
+
     make oldconfig
     exit_on_fail "[!] error: make oldconfig"
 fi
