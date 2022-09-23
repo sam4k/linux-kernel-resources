@@ -69,6 +69,12 @@ If the module wasn't compiled in kernel, i.e `CONFIG_YOUR_MODULE=m` instead of `
 ## Useful GDB Commands 
 General:
 * First things first: GDB uses a C-like syntax
+* To do some remote kernel debugging, after following the steps above:
+  * On our host, load our guest's vmlinux into gdb: `$ gdb vmlinux` (pro-tip, `chmod +x` the vmlinux executable for auto-complete)
+  * Then if our guest is running a gdb stub, we can just connect with: `(gdb) target remote localhost:8864`
+
+Shorthands:
+* `(gdb) tar rem :8864` == `(gdb) target remote localhost:8864`
 
 Structs:
 * `(gdb) info types regexp` will search all type symbols matching your regex; showing which file they're defined
