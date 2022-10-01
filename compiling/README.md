@@ -25,7 +25,7 @@ General notes and resources on compiling the Linux kernel from source.
   * `make menuconfig` will let you tweak your `.config` with an ncurses GUI; if no `.config` exists it'll use `defconfig`
   * there's several more options include `make config`, `make oldconfig`, `make savedefconfig` etc.
 5. Now it's time to start building the kernel!  
-  * `$ make -j($nproc)`
+  * `$ make -j$(nproc)`
   * `-j` lets us specify number of simultaneous jobs & `nproc` returns the number of processing units available
    
 At this point everything is compiled and built, you can find your image over in `arch/x86/boot/bzImage`. 
