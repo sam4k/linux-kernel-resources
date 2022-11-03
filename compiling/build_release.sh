@@ -4,6 +4,7 @@ set -u # exit if we use undefined vars
 # default value for kernel version is latest release, pulled from kernel.org homepage (yikes, ik)
 KVERS=$(curl -s https://www.kernel.org | grep -A1 latest_link | tail -n1 | egrep -o '>[^<]+' | egrep -o '[^>]+')
 CONFIG="defconfig"
+OUT=$KVERS
 
 # exit_on_fail(str error_message)
 exit_on_fail() {
@@ -33,6 +34,7 @@ MAJOR=${KVERS%%.*} # grabs the major version, i.e first number before the first 
 KURL=https://cdn.kernel.org/pub/linux/kernel/v$MAJOR.x/linux-$KVERS.tar.xz
 
 echo "[+] Entering $OUT"
+mkdir -p $OUT
 cd $OUT
 
 echo "[+] Downloading release from $KURL"
